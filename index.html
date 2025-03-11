@@ -3,58 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Setlists</title>
+    <title>MNCC Music Setlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant&family=Roboto+Condensed:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2f76c5a1ee.js" crossorigin="anonymous"></script>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        .button { display: block; margin: 10px auto; padding: 10px; width: 80%; text-decoration: none; background: #007BFF; color: white; border-radius: 5px; }
-        .button:hover { background: #0056b3; }
-        .hidden { display: none; }
+        @font-face {
+            font-family: "BlackerSansDisplay-Thin";
+            src: url('BlackerSansDisplay-Thin.ttf') format('truetype'),
+                url('BlackerSansDisplay-Thin.woff') format('woff');
+        }
+
+        @font-face {
+            font-family: "MoonTime-Regular";
+            src: url('MoonTime-Regular/MoonTime-Regular.ttf') format('truetype'),
+                url('MoonTime-Regular/MoonTime-Regular.woff') format('woff'),
+                url('MoonTime-Regular/MoonTime-Regular.otf') format('opentype'),
+                url('MoonTime-Regular/MoonTime-Regular.woff2') format('woff2');
+        }
+
+        * {
+            text-align: center;
+            justify-content: center;
+            justify-items: center;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(images/grass.png);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 32px;
+            color: white;
+            padding: 10px;
+        }
+
+        .header h1 {
+            font-family: 'BlackerSansDisplay-Thin';
+        }
+
+        .header h2 {
+            font-family: 'MoonTime-Regular';
+            font-size: 80px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 80%;
+            max-width: 900px;
+            justify-content: center;
+        }
+
+        .blur-box {
+            flex: 1;
+            height: 300px;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: 'BlackerSansDisplay-Thin';
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .blur-box:first-child {
+            background-color: rgba(56, 186, 131, 0.8);
+        }
+
+        .blur-box:last-child {
+            background-color: rgba(97, 112, 163, 0.8);
+        }
+
+        .blur-box:hover {
+            transform: scale(1.05);
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .blur-box {
+                height: 250px;
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Welcome to the Setlist Page</h1>
-        <div id="landing">
-            <a href="#" class="button" onclick="showSetlist('morning')">Morning Service</a>
-            <a href="#" class="button" onclick="showSetlist('afternoon')">Afternoon Service</a>
+        <div class="blur-box" onclick="window.location.href='morning.html'">
+            Morning Service
         </div>
-        
-        <div id="morning" class="hidden">
-            <h2>Morning Service Setlist</h2>
-            <ul>
-                <li>Song 1</li>
-                <li>Song 2</li>
-                <li>Song 3</li>
-            </ul>
-            <a href="#" class="button" onclick="goBack()">Back to Main</a>
-        </div>
-        
-        <div id="afternoon" class="hidden">
-            <h2>Afternoon Service Setlist</h2>
-            <ul>
-                <li>Song A</li>
-                <li>Song B</li>
-                <li>Song C</li>
-            </ul>
-            <a href="#" class="button" onclick="goBack()">Back to Main</a>
+        <div class="blur-box" onclick="window.location.href='afternoon.html'">
+            Afternoon Service
         </div>
     </div>
 
-    <script>
-        function showSetlist(service) {
-            document.getElementById('landing').classList.add('hidden');
-            document.getElementById(service).classList.remove('hidden');
-        }
-        
-        function goBack() {
-            document.getElementById('morning').classList.add('hidden');
-            document.getElementById('afternoon').classList.add('hidden');
-            document.getElementById('landing').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
 
 
 <!-- <h1>VICTORY SONG</h1> -->
